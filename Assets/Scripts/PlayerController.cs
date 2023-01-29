@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float player_speed = 5;
     [SerializeField]
-    private float player_force = 100;
+    private float player_force = 10;
 
 
     // Start is called before the first frame update
@@ -34,13 +34,13 @@ public class PlayerController : MonoBehaviour
 
         player_sr.flipX = horizontalAxis > 0 ? false : true;
 
-        player_rb.MovePosition(transform.position + new Vector3(horizontalAxis * player_speed, 0) * Time.fixedDeltaTime);
+        player_rb.velocity = new Vector2(horizontalAxis * player_speed, player_rb.velocity.y);
     }
 
     void CheckPlayerJump() {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            player_rb.AddForce(Vector2.up * player_force * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            player_rb.AddForce(Vector2.up * player_force, ForceMode2D.Impulse);
         }
     }
 }
