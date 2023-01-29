@@ -23,7 +23,7 @@ If you want to make an asset, and make sure its available, or you want to acces 
 During work, we'll be switching between the 'main' branch, and our private branches. If you havn't already, in Github go to branches>new branch and make one.
 please
 Make a habit of having your personal branch selected while working. (more on that below)
-Make a habbit of fetching origin and merging your branch with the main branch before starting working on something.(more on that below)
+Make a habbit of fetching origin and merging the main branch into your own branch before starting working on something.(more on that below)
 Make a habbit of pushing done work onto GIT (more on that below)
 When ready to share your work, make a pull request (more on that below)
 
