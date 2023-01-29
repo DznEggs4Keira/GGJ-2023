@@ -60,3 +60,5 @@ Hope this helps!
 </details>
 
 ## Below is a little information about the project
+
+The theme of this year's Global Game Jam is **_ROOTS_**
