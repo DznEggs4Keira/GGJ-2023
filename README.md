@@ -10,6 +10,7 @@ Entry for the Global Game Jam 2023
  - **Pogotje**: Our lovely supporter and elf helper
  - **DznEggs4Keira**: Programmer
  - **Tharuka**: Storyboarder and Narrative specialist
+ - **Nivlek**: Programmer
 
 ## INFORMATION FOR COLLABORATERS
 <details>
