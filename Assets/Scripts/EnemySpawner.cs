@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < spawnAmmount; i++) {
             var enemy = enemyPool.Get();
-            enemy.transform.position = transform.position + Random.onUnitSphere * 40;
+            enemy.transform.position = transform.position + Random.onUnitSphere * 100;
 
             enemy.Init(Kill);
             currentSpawn++;

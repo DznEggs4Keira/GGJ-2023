@@ -52,7 +52,7 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   hitPoint: {fileID: 4103586480525443574}
-  hitRange: 0.5
+  hitRange: 5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -61,6 +61,7 @@ MonoBehaviour:
   player_speed: 5
   player_sr: {fileID: 0}
   player_animator: {fileID: 0}
+  respawnPoint: {x: 0, y: 0}
 --- !u!50 &7405746695636996368
 Rigidbody2D:
   serializedVersion: 4

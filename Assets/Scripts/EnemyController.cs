@@ -8,13 +8,13 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] private Transform player;
 
     [Header("Speed Settings")]
-    [SerializeField] private float enemy_speed = 3;
+    [SerializeField] private float enemy_speed = 0.5f;
 
     [Header("Health Settings")]
-    [SerializeField] private int currentHealth = 10;
+    [SerializeField] private float currentHealth = 10;
     [SerializeField] private int maxHealth = 10;
 
-    public int EnemyHealth{
+    public float EnemyHealth{
         get { return currentHealth; }
         set { currentHealth = value; }
     }
