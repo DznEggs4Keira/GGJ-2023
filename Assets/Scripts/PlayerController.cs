@@ -12,8 +12,19 @@ public class PlayerController : MonoBehaviour {
      */
 
     [Header("Health Settings")]
-    [SerializeField] private int currentHealth = 100;
+    [SerializeField] private float currentHealth = 100;
     [SerializeField] private int maxHealth = 100;
+
+    public float PlayerHealth {
+        get { return currentHealth; }
+        set { currentHealth = value; }
+    }
+
+    [Header("Hit Settings")]
+    [SerializeField] private Transform hitPoint;
+    [SerializeField] private float hitRange = 5.0f;
+    [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private float recieveHitDelay = 1.5f;
 
     [Header("Simulated Physics Settings")]
     [SerializeField] private Rigidbody2D player_rb;
@@ -23,7 +34,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private SpriteRenderer player_sr;
     [SerializeField] private Animator player_animator;
 
+    [Header("Respawn Point")]
+    [SerializeField] private Vector2 respawnPoint;
+
     private Vector2 currentMovement;
+    private float delayTimer = 0;
+    private bool dead = false;
 
     // Awake is called before the first frame
     void Awake()
@@ -35,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 
     // Start is called on the first frame
     private void Start() {
-        
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -60,7 +76,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+
         // handle player movement
+        if (dead) {
+            return;
+        }
+
         Move();
     }
 
@@ -70,8 +91,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Attack() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
             // Do attack ...
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
+
+            foreach (var enemy in hitEnemies) {
+                var hit = enemy.transform.GetComponent<EnemyController>();
+
+                if (hit != null) { hit.EnemyHealth -= 10; }
+            }
         }
     }
 
@@ -79,27 +108,39 @@ public class PlayerController : MonoBehaviour {
 
         if(currentHealth <= 0) {
             // Die ...
-
+            dead = true;
             // Call Respawn Coroutine
-            Respawn();
+            StartCoroutine(Respawn());
         }
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         // if colliding with the enemy - lose Health
 
-        if (collision.gameObject.CompareTag("Enemy")) {
-            // lose 5 health
-            currentHealth -= 5;
+        delayTimer += Time.deltaTime;
+
+        if(delayTimer >= recieveHitDelay) {
+            if (collision.gameObject.CompareTag("Enemy")) {
+                // lose 5 health
+                currentHealth -= 0.1f;
+            }
         }
     }
 
-    IEnumerator Respawn(float delay = 3) {
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Enemy")) {
+            delayTimer = 0;
+        }
+    }
+
+    IEnumerator Respawn(float delay = 1) {
 
         yield return new WaitForSeconds(delay);
 
+        dead = false;
         // teleport to respawn position
+        transform.position = respawnPoint;
         // set health back to max
         currentHealth = maxHealth;
     }
