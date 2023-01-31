@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -40,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 currentMovement;
     private float delayTimer = 0;
     private bool dead = false;
+    private bool isRooted = false;
 
     // Awake is called before the first frame
     void Awake()
@@ -86,6 +86,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Move() {
+
+        if (isRooted) {
+            return;
+        }
         //player_rb.MovePosition(player_rb.position + currentMovement * player_speed * Time.fixedDeltaTime);
         player_rb.velocity = currentMovement * player_speed;
     }
@@ -97,6 +101,13 @@ public class PlayerController : MonoBehaviour {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
             foreach (var enemy in hitEnemies) {
+                // can only attack the trap if rooted
+                if (enemy.gameObject.layer == 7) {
+                    if (!isRooted) {
+                        continue;
+                    }
+                }
+
                 var hit = enemy.transform.GetComponent<EnemyController>();
 
                 if (hit != null) { hit.EnemyHealth -= 10; }
@@ -121,9 +132,12 @@ public class PlayerController : MonoBehaviour {
         delayTimer += Time.deltaTime;
 
         if(delayTimer >= recieveHitDelay) {
-            if (collision.gameObject.CompareTag("Enemy")) {
-                // lose 5 health
+            if (collision.gameObject.layer == 6) {
+                // MYCELIUM - lose 5 health
                 currentHealth -= 0.1f;
+            } else if (collision.gameObject.layer == 7) {
+                // TRAP - rooted
+                isRooted = true;
             }
         }
     }
