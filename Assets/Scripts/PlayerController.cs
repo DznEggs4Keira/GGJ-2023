@@ -92,6 +92,9 @@ public class PlayerController : MonoBehaviour {
         }
         //player_rb.MovePosition(player_rb.position + currentMovement * player_speed * Time.fixedDeltaTime);
         player_rb.velocity = currentMovement * player_speed;
+
+        //Play Moving Sound
+        AudioManager.instance.HandleFootsteps("Player Move", currentMovement.sqrMagnitude <= 0.01 ? false : true);
     }
 
     void Attack() {
@@ -110,7 +113,12 @@ public class PlayerController : MonoBehaviour {
 
                 var hit = enemy.transform.GetComponent<EnemyController>();
 
-                if (hit != null) { hit.EnemyHealth -= 10; }
+                if (hit != null) { 
+                    hit.EnemyHealth -= 10;
+
+                    //Play Attack Sound
+                    AudioManager.instance.Play("Player Attack");
+                }
             }
         }
     }
