@@ -55,7 +55,7 @@ MonoBehaviour:
   hitRange: 5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   recieveHitDelay: 1.5
   player_rb: {fileID: 0}
   player_speed: 5
