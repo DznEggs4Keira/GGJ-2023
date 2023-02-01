@@ -35,12 +35,10 @@ public class EnemyController : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, player.position, enemy_speed * Time.deltaTime);
 
         CheckDeath();
-    }  
+    }
 
     private void CheckDeath() {
         if (currentHealth <= 0) {
-
-            Debug.Log("Enemy Died");
             killAction(this);
         }
     }
