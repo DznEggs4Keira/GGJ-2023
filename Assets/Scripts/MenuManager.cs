@@ -15,12 +15,13 @@ public class MenuManager : MonoBehaviour
     public GameObject PauseMenu;
     private bool isPaused = false;
 
-    [Header("Game OVer Screen Settings")]
+    [Header("Game Over Screen Settings")]
     public GameObject GameOverScreen;
 
     // Start is called before the first frame update
     void Start()
     {
+
         resolutions = Screen.resolutions;
         resolutionsDropdown.ClearOptions();
 

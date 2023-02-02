@@ -783,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &224298567
 RectTransform:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &234863902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5674,8 +5674,8 @@ MonoBehaviour:
   - name: Player Move
     clip: {fileID: 8300000, guid: 6db034b1248044620b97518e68f4ad34, type: 3}
     volume: 0.7
-    maxPitch: 0
-    minPitch: 0
+    maxPitch: 1.5
+    minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
@@ -5853,7 +5853,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
   resolutionsDropdown: {fileID: 547665714}
   PauseMenu: {fileID: 1901708611}
-  GameOverScreen: {fileID: 0}
+  GameOverScreen: {fileID: 234863901}
 --- !u!1 &1675273412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8585,9 +8585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92623072c1823d4dab3967ad5c835d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBossEnemies: 0
-  playerHealth: 0
-  menu: {fileID: 0}
+  totalBossEnemies: 10
+  totalTries: 3
+  menu: {fileID: 1660080742}
 --- !u!4 &2146359258
 Transform:
   m_ObjectHideFlags: 0
