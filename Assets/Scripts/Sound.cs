@@ -10,6 +10,8 @@ public class Sound
 
     [Header("Audio Settings")]
     [Range(0f, 1f)] public float volume;
+    public float maxPitch;
+    public float minPitch;
     public bool loop;
     public AudioMixerGroup audioMixerGroup;
 

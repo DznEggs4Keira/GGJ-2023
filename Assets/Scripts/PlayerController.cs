@@ -103,23 +103,32 @@ public class PlayerController : MonoBehaviour {
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
-            foreach (var enemy in hitEnemies) {
-                // can only attack the trap if rooted
-                if (enemy.gameObject.layer == 7) {
-                    if (!isRooted) {
-                        continue;
+            // you collide with nothing, then play miss sound
+            if(hitEnemies != null) {
+
+                foreach (var enemy in hitEnemies) {
+                    // can only attack the trap if rooted
+                    if (enemy.gameObject.layer == 7) {
+                        if (!isRooted) {
+                            continue;
+                        }
+                    }
+
+                    var hit = enemy.transform.GetComponent<EnemyController>();
+
+                    if (hit != null) {
+                        hit.EnemyHealth -= 10;
+
+                        //Play Attack Sound
+                        AudioManager.instance.Play("Player Attack", true);
                     }
                 }
-
-                var hit = enemy.transform.GetComponent<EnemyController>();
-
-                if (hit != null) { 
-                    hit.EnemyHealth -= 10;
-
-                    //Play Attack Sound
-                    AudioManager.instance.Play("Player Attack");
-                }
+            } else {
+                //Play Missing Sound
+                AudioManager.instance.Play("Player Miss", true);
             }
+
+            
         }
     }
 
@@ -128,6 +137,13 @@ public class PlayerController : MonoBehaviour {
         if(currentHealth <= 0) {
             // Die ...
             dead = true;
+
+            //Update Dead Count
+            GameManager.instance.CurrentTries++;
+
+            //Play Dying Sound
+            AudioManager.instance.Play("Player Death", true);
+
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
         }
