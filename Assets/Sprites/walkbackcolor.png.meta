@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,9 +133,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 51
-        width: 769
-        height: 1507
+        y: 0
+        width: 899.25
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +153,10 @@ TextureImporter:
       name: walkbackcolor_1
       rect:
         serializedVersion: 2
-        x: 933
-        y: 90
-        width: 857
-        height: 1462
+        x: 899
+        y: 0
+        width: 899.25
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +174,10 @@ TextureImporter:
       name: walkbackcolor_2
       rect:
         serializedVersion: 2
-        x: 1916
-        y: 90
-        width: 764
-        height: 1466
+        x: 1798
+        y: 0
+        width: 899.25
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +195,10 @@ TextureImporter:
       name: walkbackcolor_3
       rect:
         serializedVersion: 2
-        x: 2678
-        y: 980
-        width: 29
-        height: 39
+        x: 2697
+        y: 0
+        width: 899.25
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,48 +208,6 @@ TextureImporter:
       bones: []
       spriteID: 69540390c3af3c54b88354b94aa3d455
       internalID: 749203161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walkbackcolor_4
-      rect:
-        serializedVersion: 2
-        x: 2768
-        y: 72
-        width: 782
-        height: 1475
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40d3488487916e745af765e1d63f7620
-      internalID: 1966093512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walkbackcolor_5
-      rect:
-        serializedVersion: 2
-        x: 2671
-        y: 952
-        width: 27
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0eaef069fc96d246b9c13347074d06b
-      internalID: 1934106540
       vertices: []
       indices: 
       edges: []
@@ -253,12 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walkbackcolor_4: 1966093512
       walkbackcolor_0: -803258577
       walkbackcolor_3: 749203161
       walkbackcolor_1: -872216704
       walkbackcolor_2: 1025504398
-      walkbackcolor_5: 1934106540
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

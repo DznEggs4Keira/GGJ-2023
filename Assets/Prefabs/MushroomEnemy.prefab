@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2676249598893242214}
   - component: {fileID: 4302808603569547418}
-  - component: {fileID: 742558563252368444}
+  - component: {fileID: 8057967890430970420}
   - component: {fileID: 3819559683320706633}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: MushroomEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &742558563252368444
-CircleCollider2D:
+--- !u!70 &8057967890430970420
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -69,9 +69,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.06505382, y: -0.009856641}
+  m_Size: {x: 0.89820826, y: 1.5795704}
+  m_Direction: 0
 --- !u!114 &3819559683320706633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +88,7 @@ MonoBehaviour:
   enemy_speed: 0.5
   currentHealth: 10
   maxHealth: 10
+  isMushroom: 1
 --- !u!1 &8090673520732727187
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,8 +162,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.09545212, b: 0.09545212, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1b153787e2d01ef48bd921f14002519c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

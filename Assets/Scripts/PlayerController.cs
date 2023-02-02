@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Hit Settings")]
     [SerializeField] private Transform hitPoint;
-    [SerializeField] private float hitRange = 5.0f;
+    [SerializeField] private float hitRange = 1.2f;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float recieveHitDelay = 1.5f;
 
@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour {
     void Move() {
 
         if (isRooted) {
+            // stop movement
+            player_rb.velocity = Vector2.zero;
             return;
         }
         //player_rb.MovePosition(player_rb.position + currentMovement * player_speed * Time.fixedDeltaTime);
@@ -150,6 +152,13 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.layer == 7) {
+            // TRAP - rooted
+            isRooted = true;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision) {
         // if colliding with the enemy - lose Health
 
@@ -159,16 +168,19 @@ public class PlayerController : MonoBehaviour {
             if (collision.gameObject.layer == 6) {
                 // MYCELIUM - lose 5 health
                 currentHealth -= 0.1f;
-            } else if (collision.gameObject.layer == 7) {
-                // TRAP - rooted
-                isRooted = true;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Enemy")) {
+        // mushroom hits delay reset
+        if (collision.gameObject.layer == 6) {
             delayTimer = 0;
+        }
+
+        // mycelium patch trap reset
+        if (collision.gameObject.layer == 7) {
+            isRooted = false;
         }
     }
 
