@@ -28776,7 +28776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92623072c1823d4dab3967ad5c835d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBossEnemies: 10
+  totalBossEnemies: 2
   totalTries: 3
   menu: {fileID: 1660080742}
 --- !u!4 &2146359258

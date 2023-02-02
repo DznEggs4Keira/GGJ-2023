@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class MenuManager : MonoBehaviour
 {
@@ -76,6 +77,14 @@ public class MenuManager : MonoBehaviour
 
     public void GameOver() {
         Time.timeScale = 0;
+
+        StartCoroutine(EndGame(2f));
+        
+    }
+
+    IEnumerator EndGame(float delay) {
+        yield return new WaitForSecondsRealtime(delay);
+
         GameOverScreen.SetActive(true);
     }
 
