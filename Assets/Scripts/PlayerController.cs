@@ -124,6 +124,11 @@ public class PlayerController : MonoBehaviour {
                         //Play Attack Sound
                         AudioManager.instance.Play("Player Attack", true);
                     }
+
+                    //if we destroyed a spawner, track that so that the player can finish game
+                    if(enemy.gameObject.layer == 8) {
+                        GameManager.instance.CurrentBossEnemiesKilled++;
+                    }
                 }
             } else {
                 //Play Missing Sound
