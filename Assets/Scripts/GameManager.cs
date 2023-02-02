@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (currentTries >= totalTries || currentBossEnemiesKilled >= totalBossEnemies) {
+
+            // reset current tries
+            CurrentTries = 0;
+            // reset current bosses killed
+            CurrentBossEnemiesKilled = 0;
+
             // Game over
             menu.GameOver();
         }

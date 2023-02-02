@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
         }, enemy => { Destroy(enemy.gameObject);
         },true, 10, maxSpawnAmmount);
 
-        InvokeRepeating(nameof(Spawn), 0.2f, 10f);
+        InvokeRepeating(nameof(Spawn), 0.2f, 5f);
     }
 
     void Spawn() {
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < spawnAmmount; i++) {
             var enemy = enemyPool.Get();
-            enemy.transform.position = transform.position + Random.onUnitSphere * 100;
+            enemy.transform.position = transform.position; //transform.position + Random.onUnitSphere * 100;
 
             enemy.Init(Kill);
             currentSpawn++;

@@ -52,10 +52,10 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   hitPoint: {fileID: 4103586480525443574}
-  hitRange: 5
+  hitRange: 1.2
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 448
   recieveHitDelay: 1.5
   player_rb: {fileID: 0}
   player_speed: 5
@@ -96,8 +96,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3, y: 5}
+  m_Offset: {x: -0.09, y: 0}
+  m_Size: {x: 0.5, y: 1}
   m_Direction: 0
 --- !u!95 &1994388520656293511
 Animator:
@@ -192,12 +192,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6498a6faedefe4841966e37623f2b979, type: 3}
+  m_Sprite: {fileID: -169354236, guid: 89a34011bb58f014096c97699c3de25f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.91, y: 9.9}
+  m_Size: {x: 1.6926191, y: 2.4298341}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5875266226685283555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.354, y: 0.209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

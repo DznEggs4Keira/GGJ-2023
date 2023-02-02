@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,10 +132,10 @@ TextureImporter:
       name: side anim_0
       rect:
         serializedVersion: 2
-        x: 402
-        y: 125
-        width: 1373
-        height: 1367
+        x: 0
+        y: 0
+        width: 1420
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +153,10 @@ TextureImporter:
       name: side anim_1
       rect:
         serializedVersion: 2
-        x: 1737
-        y: 111
-        width: 1366
-        height: 1259
+        x: 1420
+        y: 0
+        width: 1420
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +174,10 @@ TextureImporter:
       name: side anim_2
       rect:
         serializedVersion: 2
-        x: 3033
-        y: 97
-        width: 1391
-        height: 1381
+        x: 2840
+        y: 0
+        width: 1420
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +195,10 @@ TextureImporter:
       name: side anim_3
       rect:
         serializedVersion: 2
-        x: 4354
-        y: 118
-        width: 1359
-        height: 1374
+        x: 4260
+        y: 0
+        width: 1420
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +216,10 @@ TextureImporter:
       name: side anim_4
       rect:
         serializedVersion: 2
-        x: 5588
-        y: 121
-        width: 1457
-        height: 1399
+        x: 5680
+        y: 0
+        width: 1420
+        height: 1700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,48 +229,6 @@ TextureImporter:
       bones: []
       spriteID: f0089ed66d3c2b14fa6bb3967c080745
       internalID: 1993023329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: side anim_5
-      rect:
-        serializedVersion: 2
-        x: 1862
-        y: 108
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e37209515adbc0458bee66c050141d9
-      internalID: 744143149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: side anim_6
-      rect:
-        serializedVersion: 2
-        x: 1966
-        y: 108
-        width: 14
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3fabdf1ef7246a4a8733b8a10455796
-      internalID: -1812687014
       vertices: []
       indices: 
       edges: []
@@ -274,8 +244,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      side anim_6: -1812687014
-      side anim_5: 744143149
       side anim_0: 1412171092
       side anim_4: 1993023329
       side anim_2: -1784429530
