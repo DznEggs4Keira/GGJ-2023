@@ -40,12 +40,18 @@ public class AudioManager : MonoBehaviour
         Play("Bird Noise");
     }
 
-    public void Play(string name) {
+    public void Play(string name, bool isSFX = false) {
 
         Sound soundToPlay = Array.Find(sounds, sound => sound.name == name);
 
         if (soundToPlay != null) {
+
+            // Set a random Pitch value
+            if(isSFX) {
+                soundToPlay.audioSource.pitch = UnityEngine.Random.Range(soundToPlay.minPitch, soundToPlay.maxPitch); 
+            }
             soundToPlay.audioSource.Play();
+        
         } else {
             Debug.Log($"Sound {name} not found");
         }
@@ -59,6 +65,9 @@ public class AudioManager : MonoBehaviour
 
         if (isMoving) {
             if (!footsteps.audioSource.isPlaying) {
+
+                // Set random value between max pitch and min pitch
+                footsteps.audioSource.pitch = UnityEngine.Random.Range(footsteps.minPitch, footsteps.maxPitch);
                 footsteps.audioSource.Play();
             }
         } else {
