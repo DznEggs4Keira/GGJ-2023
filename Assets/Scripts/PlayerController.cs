@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         player_rb.velocity = currentMovement * player_speed;
 
         //Play Moving Sound
-        AudioManager.instance.HandleFootsteps("Player Move", currentMovement.sqrMagnitude <= 0.01 ? false : true);
+        AudioManager.instance.HandleFootsteps("Tate Footsteps", currentMovement.sqrMagnitude <= 0.01 ? false : true);
     }
 
     void Attack() {

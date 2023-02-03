@@ -15626,12 +15626,12 @@ MonoBehaviour:
     loop: 1
     audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
-  - name: Player Move
-    clip: {fileID: 8300000, guid: 6db034b1248044620b97518e68f4ad34, type: 3}
-    volume: 0.7
-    maxPitch: 1.5
+  - name: Tate Footsteps
+    clip: {fileID: 8300000, guid: d8cd8546f3ccabf41855602a39255226, type: 3}
+    volume: 0.721
+    maxPitch: 1.6
     minPitch: 0.5
-    loop: 0
+    loop: 1
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
   - name: Player Attack
