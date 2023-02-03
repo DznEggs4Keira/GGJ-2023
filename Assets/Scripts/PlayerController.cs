@@ -11,11 +11,9 @@ public class PlayerController : MonoBehaviour {
      */
 
     [Header("Health Settings")]
-    [SerializeField] private float currentHealth = 100;
+    [SerializeField] private float currentHealth;
     [SerializeField] private int maxHealth = 100;
-
-    //Healthbar
-    public Healthbar _Healthbar;
+    public Healthbar healthBar;
 
     public float PlayerHealth {
         get { return currentHealth; }
@@ -27,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float hitRange = 1.2f;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float recieveHitDelay = 1.5f;
+    
 
     [Header("Simulated Physics Settings")]
     [SerializeField] private Rigidbody2D player_rb;
@@ -55,6 +54,9 @@ public class PlayerController : MonoBehaviour {
     // Start is called on the first frame
     private void Start() {
         respawnPoint = transform.position;
+
+        PlayerHealth = maxHealth;
+        healthBar.SetMaxHealth(PlayerHealth);
     }
 
     // Update is called once per frame
@@ -72,10 +74,15 @@ public class PlayerController : MonoBehaviour {
         player_animator.SetFloat("Speed", currentMovement.SqrMagnitude());
 
         // handle player attacking
-        Attack();
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
+            Attack();
+        }
 
         // handle death
         CheckDeath();
+
+        //update health
+        healthBar.SetHealth(PlayerHealth);
     }
 
     private void FixedUpdate() {
@@ -99,46 +106,52 @@ public class PlayerController : MonoBehaviour {
         player_rb.velocity = currentMovement * player_speed;
 
         //Play Moving Sound
-        AudioManager.instance.HandleFootsteps("Tate Footsteps", currentMovement.sqrMagnitude <= 0.01 ? false : true);
+        AudioManager.instance.ReccuringPlay("Tate Footsteps", currentMovement.sqrMagnitude <= 0.01 ? false : true);
+    }
+
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hitPoint.position, hitRange);
     }
 
     void Attack() {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
-            // Do attack ...
 
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
+        // Do attack ...
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
-            // you collide with nothing, then play miss sound
-            if(hitEnemies != null) {
+        // you collide with nothing, then play miss sound
+        if (hitEnemies == null) {
+            //Play Missing Sound
+            AudioManager.instance.Play("Tate Misses", true);
+            return;
+        }
 
-                foreach (var enemy in hitEnemies) {
-                    // can only attack the trap if rooted
-                    if (enemy.gameObject.layer == 7) {
-                        if (!isRooted) {
-                            continue;
-                        }
-                    }
-
-                    var hit = enemy.transform.GetComponent<EnemyController>();
-
-                    if (hit != null) {
-                        hit.EnemyHealth -= 10;
-
-                        //Play Attack Sound
-                        AudioManager.instance.Play("Player Attack", true);
-                    }
-
-                    //if we destroyed a spawner, track that so that the player can finish game
-                    if(enemy.gameObject.layer == 8) {
-                        GameManager.instance.CurrentBossEnemiesKilled++;
-                    }
+        foreach (var enemy in hitEnemies) {
+            // can only attack the trap if rooted
+            if (enemy.gameObject.layer == 7) {
+                if (!isRooted) {
+                    //Play Missing Sound
+                    AudioManager.instance.Play("Tate Misses", true);
+                    continue;
                 }
-            } else {
-                //Play Missing Sound
-                AudioManager.instance.Play("Player Miss", true);
             }
 
-            
+            var hit = enemy.transform.GetComponent<EnemyController>();
+
+            // make sure it is indeed the enemy with a script for health on it AND the time between attacvks has passed
+            if (hit != null) {
+                hit.EnemyHealth -= 10;
+
+                //Play Attack Sound
+                AudioManager.instance.Play("Tate Attack", true);
+
+            }
+
+            //if we destroyed a spawner, track that so that the player can finish game
+            if(enemy.gameObject.layer == 8) {
+                GameManager.instance.CurrentBossEnemiesKilled++;
+            }
         }
     }
 
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.instance.CurrentTries++;
 
             //Play Dying Sound
-            AudioManager.instance.Play("Player Death", true);
+            //AudioManager.instance.Play("Tate Die", true);
 
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
@@ -164,6 +177,9 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.layer == 7) {
             // TRAP - rooted
             isRooted = true;
+
+            // Play stuck sound
+            AudioManager.instance.Play("Tate Stuck", true);
         }
     }
 
@@ -174,12 +190,12 @@ public class PlayerController : MonoBehaviour {
 
         if(delayTimer >= recieveHitDelay) {
             if (collision.gameObject.layer == 6) {
-                // MYCELIUM - lose 5 health
+                // Mushrooms - lose 5 health
                 currentHealth -= 0.1f;
+
+                AudioManager.instance.ReccuringPlay("Shroom Attack", true);
             }
         }
-        
-        _Healthbar.Sethealth((int)currentHealth);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
