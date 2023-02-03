@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     private float delayTimer = 0;
     private bool dead = false;
     private bool isRooted = false;
+    private bool isAttacking = false;
 
     // Awake is called before the first frame
     void Awake()
@@ -73,7 +74,11 @@ public class PlayerController : MonoBehaviour {
         player_animator.SetFloat("Speed", currentMovement.SqrMagnitude());
 
         // handle player attacking
-        Attack();
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
+            isAttacking = true;
+        } else {
+            isAttacking = false;
+        }
 
         // handle death
         CheckDeath();
@@ -90,6 +95,10 @@ public class PlayerController : MonoBehaviour {
         }
 
         Move();
+
+        if(isAttacking) {
+            Attack();
+        }
     }
 
     void Move() {
@@ -103,46 +112,87 @@ public class PlayerController : MonoBehaviour {
         player_rb.velocity = currentMovement * player_speed;
 
         //Play Moving Sound
-        AudioManager.instance.HandleFootsteps("Tate Footsteps", currentMovement.sqrMagnitude <= 0.01 ? false : true);
+        AudioManager.instance.ReccuringPlay("Tate Footsteps", currentMovement.sqrMagnitude <= 0.01 ? false : true);
     }
 
+    #region Debug Circle 2D
+        public static void DrawCircle(Vector3 position, float radius, int segments, Color color) {
+        // If either radius or number of segments are less or equal to 0, skip drawing
+        if (radius <= 0.0f || segments <= 0) {
+            return;
+        }
+
+        // Single segment of the circle covers (360 / number of segments) degrees
+        float angleStep = (360.0f / segments);
+
+        // Result is multiplied by Mathf.Deg2Rad constant which transforms degrees to radians
+        // which are required by Unity's Mathf class trigonometry methods
+
+        angleStep *= Mathf.Deg2Rad;
+
+        // lineStart and lineEnd variables are declared outside of the following for loop
+        Vector3 lineStart = Vector3.zero;
+        Vector3 lineEnd = Vector3.zero;
+
+        for (int i = 0; i < segments; i++) {
+            // Line start is defined as starting angle of the current segment (i)
+            lineStart.x = Mathf.Cos(angleStep * i);
+            lineStart.y = Mathf.Sin(angleStep * i);
+
+            // Line end is defined by the angle of the next segment (i+1)
+            lineEnd.x = Mathf.Cos(angleStep * (i + 1));
+            lineEnd.y = Mathf.Sin(angleStep * (i + 1));
+
+            // Results are multiplied so they match the desired radius
+            lineStart *= radius;
+            lineEnd *= radius;
+
+            // Results are offset by the desired position/origin 
+            lineStart += position;
+            lineEnd += position;
+
+            // Points are connected using DrawLine method and using the passed color
+            Debug.DrawLine(lineStart, lineEnd, color);
+        }
+    }
+    #endregion
+
     void Attack() {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
-            // Do attack ...
 
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
+        //DrawCircle(hitPoint.position, hitRange, 32, Color.red);
 
-            // you collide with nothing, then play miss sound
-            if(hitEnemies != null) {
+        // Do attack ...
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
-                foreach (var enemy in hitEnemies) {
-                    // can only attack the trap if rooted
-                    if (enemy.gameObject.layer == 7) {
-                        if (!isRooted) {
-                            continue;
-                        }
-                    }
-
-                    var hit = enemy.transform.GetComponent<EnemyController>();
-
-                    if (hit != null) {
-                        hit.EnemyHealth -= 10;
-
-                        //Play Attack Sound
-                        AudioManager.instance.Play("Player Attack", true);
-                    }
-
-                    //if we destroyed a spawner, track that so that the player can finish game
-                    if(enemy.gameObject.layer == 8) {
-                        GameManager.instance.CurrentBossEnemiesKilled++;
+        // you collide with nothing, then play miss sound
+        if(hitEnemies != null) {
+            foreach (var enemy in hitEnemies) {
+                // can only attack the trap if rooted
+                if (enemy.gameObject.layer == 7) {
+                    if (!isRooted) {
+                        //Play Missing Sound
+                        AudioManager.instance.Play("Tate Misses", true);
+                        continue;
                     }
                 }
-            } else {
-                //Play Missing Sound
-                AudioManager.instance.Play("Player Miss", true);
-            }
 
-            
+                var hit = enemy.transform.GetComponent<EnemyController>();
+
+                if (hit != null) {
+                    hit.EnemyHealth -= 10;
+
+                    //Play Attack Sound
+                    AudioManager.instance.Play("Tate Attack", true);
+                }
+
+                //if we destroyed a spawner, track that so that the player can finish game
+                if(enemy.gameObject.layer == 8) {
+                    GameManager.instance.CurrentBossEnemiesKilled++;
+                }
+            }
+        } else {
+            //Play Missing Sound
+            AudioManager.instance.Play("Tate Misses", true);
         }
     }
 
@@ -156,7 +206,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.instance.CurrentTries++;
 
             //Play Dying Sound
-            AudioManager.instance.Play("Player Death", true);
+            //AudioManager.instance.Play("Tate Die", true);
 
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
@@ -168,6 +218,9 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.layer == 7) {
             // TRAP - rooted
             isRooted = true;
+
+            // Play stuck sound
+            AudioManager.instance.Play("Tate Stuck", true);
         }
     }
 
@@ -178,8 +231,10 @@ public class PlayerController : MonoBehaviour {
 
         if(delayTimer >= recieveHitDelay) {
             if (collision.gameObject.layer == 6) {
-                // MYCELIUM - lose 5 health
+                // Mushrooms - lose 5 health
                 currentHealth -= 0.1f;
+
+                AudioManager.instance.ReccuringPlay("Shroom Attack", true);
             }
         }
     }

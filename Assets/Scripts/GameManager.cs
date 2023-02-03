@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) {
+            AudioManager.instance.StopAllSFX();
+        }
+
         if (currentTries >= totalTries || currentBossEnemiesKilled >= totalBossEnemies) {
 
             // reset current tries

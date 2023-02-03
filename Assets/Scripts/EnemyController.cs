@@ -40,6 +40,9 @@ public class EnemyController : MonoBehaviour {
         if(isMushroom) {
             // move the enemy towards the player every frame
             transform.position = Vector2.MoveTowards(transform.position, player.position, enemy_speed * Time.deltaTime);
+
+            // play footsteps of shrooms
+            AudioManager.instance.ReccuringPlay("Shroom Move", true);
         }
 
         CheckDeath();

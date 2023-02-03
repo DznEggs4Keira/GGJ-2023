@@ -5559,59 +5559,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Ambient Wind
-    clip: {fileID: 8300000, guid: 9e5de4e015f3b416c919530677f1b5dc, type: 3}
-    volume: 0.2
-    maxPitch: 0
-    minPitch: 0
-    loop: 1
-    audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
-    audioSource: {fileID: 0}
-  - name: Bird Noise
-    clip: {fileID: 8300000, guid: 8eaaa8e939cc3408eb3009cc52968d1c, type: 3}
-    volume: 0.4
-    maxPitch: 0
-    minPitch: 0
-    loop: 1
-    audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
-    audioSource: {fileID: 0}
   - name: Tate Footsteps
     clip: {fileID: 8300000, guid: d8cd8546f3ccabf41855602a39255226, type: 3}
-    volume: 0.721
+    volume: 0.5
     maxPitch: 1.6
     minPitch: 0.5
     loop: 1
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
-  - name: Player Attack
-    clip: {fileID: 8300000, guid: d14ee61eaaf304af58af1cad311ebacd, type: 3}
-    volume: 0.7
-    maxPitch: 0
-    minPitch: 0
+  - name: Tate Misses
+    clip: {fileID: 8300000, guid: 0683414d447716e4393abdbbf9142c30, type: 3}
+    volume: 0.9
+    maxPitch: 1.5
+    minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
-  - name: Player Die
-    clip: {fileID: 0}
-    volume: 0.7
-    maxPitch: 0
-    minPitch: 0
+  - name: Tate Stuck
+    clip: {fileID: 8300000, guid: c678b2f2c71d08e4bb66e5c0e16de530, type: 3}
+    volume: 0.9
+    maxPitch: 1.5
+    minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
-  - name: Mycelium Spawn
-    clip: {fileID: 0}
-    volume: 0.7
-    maxPitch: 0
-    minPitch: 0
+  - name: Shroom Move
+    clip: {fileID: 8300000, guid: 7470bef775d026e4495af1f3fc89ad88, type: 3}
+    volume: 0.5
+    maxPitch: 1.5
+    minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
-  - name: Mycelium Die
-    clip: {fileID: 0}
-    volume: 0.7
-    maxPitch: 0
-    minPitch: 0
+  - name: Shroom Attack
+    clip: {fileID: 8300000, guid: e0d96f81c0ac6f945ae548a1e187f1db, type: 3}
+    volume: 0.9
+    maxPitch: 1.5
+    minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}

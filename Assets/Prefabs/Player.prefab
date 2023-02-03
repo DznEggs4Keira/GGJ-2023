@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafb4e4c8fc078f4081950262b59ee4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
+  currentHealth: 1000
+  maxHealth: 1000
   healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
   hitRange: 1.2

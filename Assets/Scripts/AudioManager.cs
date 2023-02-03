@@ -35,8 +35,8 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Play("Ambient Wind");
-        Play("Bird Noise");
+        //Play("Ambient Wind");
+        //Play("Bird Noise");
     }
 
     public void Play(string name, bool isSFX = false) {
@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
     }
 
     // check if it is moving footsteps, doin't spam play it if already playing
-    public void HandleFootsteps(string name, bool isMoving = false) {
+    public void ReccuringPlay(string name, bool isMoving = false) {
 
         Sound footsteps = Array.Find(sounds, sound => sound.name == name);
 
@@ -75,5 +75,14 @@ public class AudioManager : MonoBehaviour
        
 
         
+    }
+
+    // stop all sfx on pause
+    public void StopAllSFX() {
+        foreach (var sound in sounds) {
+            if (sound.audioMixerGroup.name == "SFX") {
+                sound.audioSource.Stop();
+            }
+        }
     }
 }
