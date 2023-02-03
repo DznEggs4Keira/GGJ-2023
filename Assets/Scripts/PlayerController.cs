@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Hit Settings")]
     [SerializeField] private Transform hitPoint;
-    [SerializeField] private float hitRange = 5.0f;
+    [SerializeField] private float hitRange = 1.2f;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float recieveHitDelay = 1.5f;
 
@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour {
     void Move() {
 
         if (isRooted) {
+            // stop movement
+            player_rb.velocity = Vector2.zero;
             return;
         }
         //player_rb.MovePosition(player_rb.position + currentMovement * player_speed * Time.fixedDeltaTime);
@@ -106,23 +108,37 @@ public class PlayerController : MonoBehaviour {
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
-            foreach (var enemy in hitEnemies) {
-                // can only attack the trap if rooted
-                if (enemy.gameObject.layer == 7) {
-                    if (!isRooted) {
-                        continue;
+            // you collide with nothing, then play miss sound
+            if(hitEnemies != null) {
+
+                foreach (var enemy in hitEnemies) {
+                    // can only attack the trap if rooted
+                    if (enemy.gameObject.layer == 7) {
+                        if (!isRooted) {
+                            continue;
+                        }
+                    }
+
+                    var hit = enemy.transform.GetComponent<EnemyController>();
+
+                    if (hit != null) {
+                        hit.EnemyHealth -= 10;
+
+                        //Play Attack Sound
+                        AudioManager.instance.Play("Player Attack", true);
+                    }
+
+                    //if we destroyed a spawner, track that so that the player can finish game
+                    if(enemy.gameObject.layer == 8) {
+                        GameManager.instance.CurrentBossEnemiesKilled++;
                     }
                 }
-
-                var hit = enemy.transform.GetComponent<EnemyController>();
-
-                if (hit != null) { 
-                    hit.EnemyHealth -= 10;
-
-                    //Play Attack Sound
-                    AudioManager.instance.Play("Player Attack");
-                }
+            } else {
+                //Play Missing Sound
+                AudioManager.instance.Play("Player Miss", true);
             }
+
+            
         }
     }
 
@@ -131,10 +147,24 @@ public class PlayerController : MonoBehaviour {
         if(currentHealth <= 0) {
             // Die ...
             dead = true;
+
+            //Update Dead Count
+            GameManager.instance.CurrentTries++;
+
+            //Play Dying Sound
+            AudioManager.instance.Play("Player Death", true);
+
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.layer == 7) {
+            // TRAP - rooted
+            isRooted = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -146,23 +176,21 @@ public class PlayerController : MonoBehaviour {
             if (collision.gameObject.layer == 6) {
                 // MYCELIUM - lose 5 health
                 currentHealth -= 0.1f;
-<<<<<<< Updated upstream
-            } else if (collision.gameObject.layer == 7) {
-                // TRAP - rooted
-                isRooted = true;
-=======
-                
->>>>>>> Stashed changes
             }
         }
-
         
         _Healthbar.Sethealth((int)currentHealth);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Enemy")) {
+        // mushroom hits delay reset
+        if (collision.gameObject.layer == 6) {
             delayTimer = 0;
+        }
+
+        // mycelium patch trap reset
+        if (collision.gameObject.layer == 7) {
+            isRooted = false;
         }
     }
 
