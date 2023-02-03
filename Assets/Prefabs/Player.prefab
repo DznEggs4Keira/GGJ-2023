@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
   hitRange: 1.2
   enemyLayers:

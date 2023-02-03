@@ -11,11 +11,9 @@ public class PlayerController : MonoBehaviour {
      */
 
     [Header("Health Settings")]
-    [SerializeField] private float currentHealth = 100;
+    [SerializeField] private float currentHealth;
     [SerializeField] private int maxHealth = 100;
-
-    //Healthbar
-    public Healthbar _Healthbar;
+    public Healthbar healthBar;
 
     public float PlayerHealth {
         get { return currentHealth; }
@@ -55,6 +53,9 @@ public class PlayerController : MonoBehaviour {
     // Start is called on the first frame
     private void Start() {
         respawnPoint = transform.position;
+
+        PlayerHealth = maxHealth;
+        healthBar.SetMaxHealth(PlayerHealth);
     }
 
     // Update is called once per frame
@@ -76,6 +77,9 @@ public class PlayerController : MonoBehaviour {
 
         // handle death
         CheckDeath();
+
+        //update health
+        healthBar.SetHealth(PlayerHealth);
     }
 
     private void FixedUpdate() {
@@ -178,8 +182,6 @@ public class PlayerController : MonoBehaviour {
                 currentHealth -= 0.1f;
             }
         }
-        
-        _Healthbar.Sethealth((int)currentHealth);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
