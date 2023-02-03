@@ -132,12 +132,12 @@ TextureImporter:
       name: shroomwalk_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 137
-        width: 1327
-        height: 1301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1595.75
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.53479993, y: 0.12200941}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: shroomwalk_1
       rect:
         serializedVersion: 2
-        x: 1833
-        y: 137
-        width: 1290
-        height: 1292
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1595
+        y: 0
+        width: 1595.75
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.61931396, y: 0.10800976}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: shroomwalk_2
       rect:
         serializedVersion: 2
-        x: 3366
-        y: 137
-        width: 1328
-        height: 1304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3190
+        y: 0
+        width: 1595.75
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.4900572, y: 0.11267631}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,12 +195,12 @@ TextureImporter:
       name: shroomwalk_3
       rect:
         serializedVersion: 2
-        x: 4875
-        y: 137
-        width: 1290
-        height: 1292
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4785
+        y: 0
+        width: 1595.75
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.39560038, y: 0.11734286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
