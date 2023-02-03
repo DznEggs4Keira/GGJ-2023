@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float currentHealth = 100;
     [SerializeField] private int maxHealth = 100;
 
+    //Healthbar
+    public Healthbar _Healthbar;
+
     public float PlayerHealth {
         get { return currentHealth; }
         set { currentHealth = value; }
@@ -175,6 +178,8 @@ public class PlayerController : MonoBehaviour {
                 currentHealth -= 0.1f;
             }
         }
+        
+        _Healthbar.Sethealth((int)currentHealth);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
