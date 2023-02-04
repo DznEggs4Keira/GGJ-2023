@@ -16,9 +16,6 @@ public class MenuManager : MonoBehaviour
     public GameObject PauseMenu;
     private bool isPaused = false;
 
-    [Header("Game Over Screen Settings")]
-    public GameObject GameOverScreen;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +41,6 @@ public class MenuManager : MonoBehaviour
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
 
-        Time.timeScale = 0;
     }
 
     private void Update() {
@@ -73,19 +69,6 @@ public class MenuManager : MonoBehaviour
 
     public void Exit() {
         Application.Quit();
-    }
-
-    public void GameOver() {
-        Time.timeScale = 0;
-
-        StartCoroutine(EndGame(2f));
-        
-    }
-
-    IEnumerator EndGame(float delay) {
-        yield return new WaitForSecondsRealtime(delay);
-
-        GameOverScreen.SetActive(true);
     }
 
     #region SETTINGS MENU

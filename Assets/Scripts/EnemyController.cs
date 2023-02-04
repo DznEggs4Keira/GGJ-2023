@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     [Header("Health Settings")]
     [SerializeField] private float currentHealth = 10;
     [SerializeField] private int maxHealth = 10;
+    private Healthbar healthBar;
 
     [Header("Set Enemy Type")]
     public bool isMushroom;
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         EnemyHealth = maxHealth;
+
+        healthBar = gameObject.GetComponentInChildren<Healthbar>();
     }
 
     public void Init(Action<EnemyController> enemyToKill) {
@@ -44,6 +47,9 @@ public class EnemyController : MonoBehaviour {
             // play footsteps of shrooms
             AudioManager.instance.ReccuringPlay("Shroom Move", true);
         }
+
+        //update health
+        healthBar.SetHealth(EnemyHealth);
 
         CheckDeath();
     }
@@ -63,6 +69,20 @@ public class EnemyController : MonoBehaviour {
 
     private void OnEnable() {
         EnemyHealth = maxHealth;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+
+        // if this enemy is a trap
+        if(gameObject.layer == 7 || gameObject.tag == "TrapCenter") {
+            if (collision.gameObject.tag == "PlayerFeet") {
+                // TRAP - rooted
+                player.GetComponent<PlayerController>().Rooted = true;
+
+                // Play stuck sound
+                AudioManager.instance.Play("Tate Stuck", true);
+            }
+        }
     }
 
 

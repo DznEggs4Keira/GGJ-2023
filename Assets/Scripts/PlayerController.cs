@@ -43,6 +43,11 @@ public class PlayerController : MonoBehaviour {
     private bool dead = false;
     private bool isRooted = false;
 
+    public bool Rooted {
+        get { return isRooted; }
+        set { isRooted = value; }
+    }
+
     // Awake is called before the first frame
     void Awake()
     {
@@ -74,7 +79,7 @@ public class PlayerController : MonoBehaviour {
         player_animator.SetFloat("Speed", currentMovement.SqrMagnitude());
 
         // handle player attacking
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1")) {
             Attack();
         }
 
@@ -118,16 +123,10 @@ public class PlayerController : MonoBehaviour {
     void Attack() {
 
         // Do attack ...
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
+        player_animator.SetTrigger("Attack");
 
-        // you collide with nothing, then play miss sound
-        if (hitEnemies == null) {
-            //Play Missing Sound
-            AudioManager.instance.Play("Tate Misses", true);
-            return;
-        }
+        foreach (var enemy in Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers)) {
 
-        foreach (var enemy in hitEnemies) {
             // can only attack the trap if rooted
             if (enemy.gameObject.layer == 7) {
                 if (!isRooted) {
@@ -139,20 +138,25 @@ public class PlayerController : MonoBehaviour {
 
             var hit = enemy.transform.GetComponent<EnemyController>();
 
-            // make sure it is indeed the enemy with a script for health on it AND the time between attacvks has passed
+            // make sure it is indeed the enemy with a script for health on it
             if (hit != null) {
                 hit.EnemyHealth -= 10;
 
                 //Play Attack Sound
-                AudioManager.instance.Play("Tate Hits Shrooms", true);
+                if (hit.gameObject.layer == 6) {
+                    AudioManager.instance.Play("Tate Hits Shrooms", true);
+                } else {
+                    AudioManager.instance.Play("Tate Hits Myce", true);
+                }
 
             }
 
             //if we destroyed a spawner, track that so that the player can finish game
-            if(enemy.gameObject.layer == 8) {
+            if (enemy.gameObject.layer == 8) {
                 GameManager.instance.CurrentBossEnemiesKilled++;
             }
         }
+            
     }
 
     void CheckDeath() {
@@ -164,23 +168,10 @@ public class PlayerController : MonoBehaviour {
             //Update Dead Count
             GameManager.instance.CurrentTries++;
 
-            //Play Dying Sound
-            AudioManager.instance.Play("Tate Dies", true);
-
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
         }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.layer == 7) {
-            // TRAP - rooted
-            isRooted = true;
-
-            // Play stuck sound
-            AudioManager.instance.Play("Tate Stuck", true);
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -210,7 +201,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    IEnumerator Respawn(float delay = 1) {
+    IEnumerator Respawn(float delay = 10) {
+
+        //Play Dying Sound
+        AudioManager.instance.Play("Tate Dies", true);
 
         yield return new WaitForSeconds(delay);
 
