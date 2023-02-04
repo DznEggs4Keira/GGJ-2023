@@ -24272,8 +24272,8 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: Tate Footsteps
     clip: {fileID: 8300000, guid: d8cd8546f3ccabf41855602a39255226, type: 3}
-    volume: 0.5
-    maxPitch: 1.6
+    volume: 1
+    maxPitch: 1
     minPitch: 0.5
     loop: 1
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
@@ -24297,7 +24297,7 @@ MonoBehaviour:
   - name: Tate Misses
     clip: {fileID: 8300000, guid: 0683414d447716e4393abdbbf9142c30, type: 3}
     volume: 0.9
-    maxPitch: 1.5
+    maxPitch: 0.8
     minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
@@ -24328,7 +24328,7 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: Shroom Move
     clip: {fileID: 8300000, guid: 682821031584d1d44baed2d88735ce1e, type: 3}
-    volume: 0.5
+    volume: 1
     maxPitch: 0.7
     minPitch: 0.5
     loop: 0
