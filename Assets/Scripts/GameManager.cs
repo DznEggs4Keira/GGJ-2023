@@ -45,17 +45,18 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // hide game level
+        /*// hide game level
         levelLayout.gameObject.SetActive(false);
 
         // play intro
         videoPlayer.clip = intro;
-        videoPlayer.Play();
+        videoPlayer.Play();*/
     }
 
     private void Start() {
 
         Time.timeScale = 0;
+        MainMenu.gameObject.SetActive(true);
 
         // find all boss enemy types on map
         var totalEnemies = GameObject.FindObjectsOfType<EnemySpawner>();
@@ -80,9 +81,9 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
 
-        if(videoPlayer.clip != null) {
+        /*if(videoPlayer.clip != null) {
             CheckPlaying();
-        }
+        }*/
     }
 
     public void CheckPlaying() {
@@ -109,12 +110,12 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         Time.timeScale = 0;
 
-        //hide game
+        /*//hide game
         levelLayout.gameObject.SetActive(false);
 
         // play Outro
         videoPlayer.clip = outro;
-        videoPlayer.Play();
+        videoPlayer.Play();*/
     }
 
     public void ReloadGame() {
