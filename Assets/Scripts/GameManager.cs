@@ -35,6 +35,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        // find all boss enemy types on map
+        var totalEnemies = GameObject.FindObjectsOfType<EnemySpawner>();
+
+        totalBossEnemies = totalEnemies.Length;
+    }
+
     // Update is called once per frame
     void Update()
     {
