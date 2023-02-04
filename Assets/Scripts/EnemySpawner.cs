@@ -32,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < spawnAmmount; i++) {
             var enemy = enemyPool.Get();
+            AudioManager.instance.Play("Shroom Spawns", true);
             enemy.transform.position = transform.position; //transform.position + Random.onUnitSphere * 100;
 
             enemy.Init(Kill);
@@ -40,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void Kill(EnemyController enemy) {
+        AudioManager.instance.Play("Shroom Dies", true);
         enemyPool.Release(enemy);
     }
 }

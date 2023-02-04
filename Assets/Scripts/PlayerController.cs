@@ -120,14 +120,15 @@ public class PlayerController : MonoBehaviour {
         // Do attack ...
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, enemyLayers);
 
-        // you collide with nothing, then play miss sound
-        if (hitEnemies == null) {
-            //Play Missing Sound
-            AudioManager.instance.Play("Tate Misses", true);
-            return;
-        }
-
         foreach (var enemy in hitEnemies) {
+
+            // you don't collide with enemy, then play miss sound
+            if (enemy.gameObject.layer != enemyLayers) {
+                //Play Missing Sound
+                AudioManager.instance.Play("Tate Misses", true);
+                continue;
+            }
+
             // can only attack the trap if rooted
             if (enemy.gameObject.layer == 7) {
                 if (!isRooted) {
@@ -139,13 +140,17 @@ public class PlayerController : MonoBehaviour {
 
             var hit = enemy.transform.GetComponent<EnemyController>();
 
-            // make sure it is indeed the enemy with a script for health on it AND the time between attacvks has passed
+            // make sure it is indeed the enemy with a script for health on it
             if (hit != null) {
                 hit.EnemyHealth -= 10;
 
                 //Play Attack Sound
-                AudioManager.instance.Play("Tate Attack", true);
-
+                if(hit.gameObject.layer == 6) {
+                    AudioManager.instance.Play("Tate Hits Shrooms", true);
+                } else {
+                    AudioManager.instance.Play("Tate Hits Myce", true);
+                }
+                
             }
 
             //if we destroyed a spawner, track that so that the player can finish game
@@ -165,7 +170,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.instance.CurrentTries++;
 
             //Play Dying Sound
-            //AudioManager.instance.Play("Tate Die", true);
+            AudioManager.instance.Play("Tate Dies", true);
 
             // Call Respawn Coroutine
             StartCoroutine(Respawn());
