@@ -61,6 +61,8 @@ public class EnemyController : MonoBehaviour {
             if(isMushroom) {
                 killAction(this);
             } else {
+                // play myce dies sound
+                AudioManager.instance.Play("Myce Dies", true);
                 Destroy(gameObject);
             }
             
