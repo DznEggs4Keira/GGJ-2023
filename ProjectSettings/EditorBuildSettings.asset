@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RootsLevelDesign2.0.unity
-    guid: dd3bb442a5f56f94985b7fb950bcb6c4
+    path: Assets/Scenes/RootsEntryScene.unity
+    guid: 2aae8c8a81d86d049b2c8d2b0969c5a7
   m_configObjects: {}

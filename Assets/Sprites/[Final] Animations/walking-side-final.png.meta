@@ -132,9 +132,9 @@ TextureImporter:
       name: walking-side-final_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 222
         y: 0
-        width: 1420
+        width: 1329
         height: 1700
       alignment: 9
       pivot: {x: 0.5559284, y: 0.10381489}
@@ -153,10 +153,10 @@ TextureImporter:
       name: walking-side-final_1
       rect:
         serializedVersion: 2
-        x: 1420
-        y: 0
-        width: 1420
-        height: 1700
+        x: 1628
+        y: 8
+        width: 1212
+        height: 1692
       alignment: 9
       pivot: {x: 0.49378577, y: 0.09862415}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,7 +197,7 @@ TextureImporter:
         serializedVersion: 2
         x: 4260
         y: 0
-        width: 1420
+        width: 1190
         height: 1700
       alignment: 9
       pivot: {x: 0.3508576, y: 0.10900564}
@@ -216,13 +216,13 @@ TextureImporter:
       name: walking-side-final_4
       rect:
         serializedVersion: 2
-        x: 5680
+        x: 5603
         y: 0
-        width: 1420
+        width: 1357
         height: 1700
       alignment: 9
       pivot: {x: 0.2887152, y: 0.114196375}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
