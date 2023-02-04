@@ -33,21 +33,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
-  alignment: 0
+  spriteMeshType: 0
+  alignment: 9
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 700
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,9 +113,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: walking-side-final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1420
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.5559284, y: 0.10381489}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba54eb112a4469f4ab3988e8a2bc9647
+      internalID: -1642016931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking-side-final_1
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 0
+        width: 1420
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.49378577, y: 0.09862415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb0b46405645c44eb4a05d3d18ccb53
+      internalID: 1242538916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking-side-final_2
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 0
+        width: 1420
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.40057167, y: 0.10900564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4221aad219ec9e043bc5bc39d3f81c89
+      internalID: -1370443465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking-side-final_3
+      rect:
+        serializedVersion: 2
+        x: 4260
+        y: 0
+        width: 1420
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.3508576, y: 0.10900564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50696f8601756847a191a3cb835adc2
+      internalID: 278135157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking-side-final_4
+      rect:
+        serializedVersion: 2
+        x: 5680
+        y: 0
+        width: 1420
+        height: 1700
+      alignment: 9
+      pivot: {x: 0.2887152, y: 0.114196375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad3520c3ffec8b438ab27e13b29c584
+      internalID: 1029859762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +243,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walking-side-final_0: -1642016931
+      walking-side-final_3: 278135157
+      walking-side-final_1: 1242538916
+      walking-side-final_4: 1029859762
+      walking-side-final_2: -1370443465
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
