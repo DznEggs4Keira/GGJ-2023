@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour {
                 hit.EnemyHealth -= 10;
 
                 //Play Attack Sound
-                AudioManager.instance.Play("Tate Attack", true);
+                AudioManager.instance.Play("Tate Hits Shrooms", true);
 
             }
 
@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.instance.CurrentTries++;
 
             //Play Dying Sound
-            //AudioManager.instance.Play("Tate Die", true);
+            AudioManager.instance.Play("Tate Dies", true);
 
             // Call Respawn Coroutine
             StartCoroutine(Respawn());

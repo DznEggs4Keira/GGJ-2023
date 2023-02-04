@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Play("Ambient Wind");
+        Play("Gameplay Music");
         //Play("Bird Noise");
     }
 
