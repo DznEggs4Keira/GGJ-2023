@@ -62,6 +62,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, maxDistance / 2);
+        Gizmos.DrawWireSphere(transform.position, maxDistance);
     }
 }

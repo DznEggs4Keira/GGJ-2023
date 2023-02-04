@@ -388,7 +388,7 @@ MonoBehaviour:
   spawnAmmount: 10
   currentSpawn: 0
   maxSpawnAmmount: 50
-  maxDistance: 25
+  maxDistance: 5
 --- !u!114 &7033238195588671113
 MonoBehaviour:
   m_ObjectHideFlags: 0
