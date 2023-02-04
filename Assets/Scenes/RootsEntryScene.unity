@@ -5707,6 +5707,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: Gameplay Music
+    clip: {fileID: 8300000, guid: 0fbb7cac1a73dfe4eb6a519db755aa6e, type: 3}
+    volume: 1
+    maxPitch: 0.5
+    minPitch: 0.5
+    loop: 1
+    audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
   - name: Tate Footsteps
     clip: {fileID: 8300000, guid: d8cd8546f3ccabf41855602a39255226, type: 3}
     volume: 0.5
@@ -5743,6 +5751,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c678b2f2c71d08e4bb66e5c0e16de530, type: 3}
     volume: 0.9
     maxPitch: 1.5
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
+  - name: Tate Dies
+    clip: {fileID: 8300000, guid: 8fee833abc219f742a314e2f1f8e19c1, type: 3}
+    volume: 1
+    maxPitch: 1
     minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
@@ -5786,22 +5802,6 @@ MonoBehaviour:
     minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
-    audioSource: {fileID: 0}
-  - name: Tate Dies
-    clip: {fileID: 8300000, guid: 8fee833abc219f742a314e2f1f8e19c1, type: 3}
-    volume: 0.9
-    maxPitch: 1
-    minPitch: 0.5
-    loop: 0
-    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
-    audioSource: {fileID: 0}
-  - name: Gameplay Music
-    clip: {fileID: 8300000, guid: 0fbb7cac1a73dfe4eb6a519db755aa6e, type: 3}
-    volume: 0.9
-    maxPitch: 0.5
-    minPitch: 0.5
-    loop: 1
-    audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
 --- !u!4 &1607374619
 Transform:
