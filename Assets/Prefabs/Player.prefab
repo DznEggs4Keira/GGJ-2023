@@ -54,7 +54,7 @@ MonoBehaviour:
   maxHealth: 1000
   healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
-  hitRange: 1
+  hitRange: 1.15
   enemyLayers:
     serializedVersion: 2
     m_Bits: 448
