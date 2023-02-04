@@ -134,7 +134,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1184.8334
+        width: 1221
         height: 1700
       alignment: 9
       pivot: {x: 0.39560023, y: 0.11434104}
@@ -153,9 +153,9 @@ TextureImporter:
       name: walk-front-final_1
       rect:
         serializedVersion: 2
-        x: 1184
+        x: 1228
         y: 0
-        width: 1184.8334
+        width: 1123
         height: 1700
       alignment: 9
       pivot: {x: 0.33594322, y: 0.083157115}
@@ -174,9 +174,9 @@ TextureImporter:
       name: walk-front-final_2
       rect:
         serializedVersion: 2
-        x: 2368
+        x: 2337
         y: 0
-        width: 1184.8334
+        width: 1123
         height: 1700
       alignment: 9
       pivot: {x: 0.29120037, y: 0.09355176}
@@ -195,9 +195,9 @@ TextureImporter:
       name: walk-front-final_3
       rect:
         serializedVersion: 2
-        x: 3552
+        x: 3453
         y: 0
-        width: 1184.8334
+        width: 1221
         height: 1700
       alignment: 9
       pivot: {x: 0.2390003, y: 0.083157115}
@@ -216,9 +216,9 @@ TextureImporter:
       name: walk-front-final_4
       rect:
         serializedVersion: 2
-        x: 4736
+        x: 4694
         y: 0
-        width: 1184.8334
+        width: 1234
         height: 1700
       alignment: 9
       pivot: {x: 0.2986571, y: 0.09355176}
