@@ -5715,6 +5715,22 @@ MonoBehaviour:
     loop: 1
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
+  - name: Tate Hits Shrooms
+    clip: {fileID: 8300000, guid: 0dbf1533d928f3b49b6e1a3c814552f3, type: 3}
+    volume: 0.9
+    maxPitch: 1.5
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
+  - name: Tate Hits Myce
+    clip: {fileID: 8300000, guid: 467bc3216d190e243a01b496d363aa28, type: 3}
+    volume: 0.9
+    maxPitch: 1.5
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
   - name: Tate Misses
     clip: {fileID: 8300000, guid: 0683414d447716e4393abdbbf9142c30, type: 3}
     volume: 0.9
@@ -5731,10 +5747,18 @@ MonoBehaviour:
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
+  - name: Shroom Spawns
+    clip: {fileID: 8300000, guid: c10d8e7c9345b2f41b5d82d5ef22f10d, type: 3}
+    volume: 0.9
+    maxPitch: 0.9
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
   - name: Shroom Move
-    clip: {fileID: 8300000, guid: 7470bef775d026e4495af1f3fc89ad88, type: 3}
+    clip: {fileID: 8300000, guid: 682821031584d1d44baed2d88735ce1e, type: 3}
     volume: 0.5
-    maxPitch: 1.5
+    maxPitch: 0.7
     minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
@@ -5746,6 +5770,30 @@ MonoBehaviour:
     minPitch: 0.5
     loop: 0
     audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
+  - name: Shroom Dies
+    clip: {fileID: 8300000, guid: 9c82e8099d7ae6047ad9b6445eaac287, type: 3}
+    volume: 0.9
+    maxPitch: 1
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
+  - name: Tate Dies
+    clip: {fileID: 8300000, guid: 8fee833abc219f742a314e2f1f8e19c1, type: 3}
+    volume: 0.9
+    maxPitch: 1
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 2596235325794148947, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
+    audioSource: {fileID: 0}
+  - name: Gameplay Music
+    clip: {fileID: 8300000, guid: 0fbb7cac1a73dfe4eb6a519db755aa6e, type: 3}
+    volume: 0.9
+    maxPitch: 1
+    minPitch: 0.5
+    loop: 0
+    audioMixerGroup: {fileID: 138063532066503829, guid: 4c4a135551ffbb040b44717c86e69c0f, type: 2}
     audioSource: {fileID: 0}
 --- !u!4 &1607374619
 Transform:
