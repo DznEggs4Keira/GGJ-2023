@@ -18,6 +18,14 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyUp(KeyCode.Return)) {
+            if(isOutro) {
+                //close game
+                Application.Quit();
+            } else {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
     }
 
     public IEnumerator PlayNextLevel(float delay) {
