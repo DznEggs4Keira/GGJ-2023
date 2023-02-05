@@ -403,8 +403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemy_speed: 0.8
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 10
+  maxHealth: 10
   isMushroom: 0
 --- !u!95 &238085455039201688
 Animator:
