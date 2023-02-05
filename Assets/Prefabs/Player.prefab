@@ -50,11 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafb4e4c8fc078f4081950262b59ee4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1000
-  maxHealth: 1000
+  currentHealth: 2500
+  maxHealth: 2500
   healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
-  hitRange: 1.45
+  hitRange: 1.2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 448
@@ -98,8 +98,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: 1.04}
-  m_Size: {x: 0.8, y: 1.8}
+  m_Offset: {x: -0.03, y: 0.82}
+  m_Size: {x: 0.68, y: 1.38}
   m_Direction: 0
 --- !u!212 &4106633399517537263
 SpriteRenderer:
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2692858, y: 2.4294925}
+  m_Size: {x: 1.3566666, y: 1.889871}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

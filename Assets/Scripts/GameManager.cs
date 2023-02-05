@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.StopAllSFX();
         }
 
-        if (currentTries >= totalTries || currentBossEnemiesKilled >= totalBossEnemies) {
+        if (currentTries >= totalTries) {
 
             // reset current tries
             CurrentTries = 0;
@@ -79,11 +79,17 @@ public class GameManager : MonoBehaviour
 
             // Game over
             GameOver();
+        } else if (currentBossEnemiesKilled >= totalBossEnemies) {
+            Invoke(nameof(LoadOutro), 0.5f); 
         }
 
         /*if(videoPlayer.clip != null) {
             CheckPlaying();
         }*/
+    }
+
+    private void LoadOutro() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void CheckPlaying() {

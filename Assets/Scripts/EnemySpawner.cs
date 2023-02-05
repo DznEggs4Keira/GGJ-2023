@@ -8,17 +8,18 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy Prefab")]
     [SerializeField] private EnemyController enemyPrefab;
-    [SerializeField] private int spawnAmmount = 10;
+    [SerializeField] private int spawnAmmount = 20;
     [SerializeField] private int currentSpawn;
-    [SerializeField] private int maxSpawnAmmount = 50;
+    [SerializeField] private int maxSpawnAmmount = 100;
 
-    [Header("Spawner Range")]
+    [Header("Spawner Settings")]
     public float maxDistance;
 
     [SerializeField] private ObjectPool<EnemyController> enemyPool;
     // Start is called before the first frame update
     void Start()
     {
+        // set up object pool for mushrooms 
         enemyPool = new ObjectPool<EnemyController>(() => {
             return Instantiate(enemyPrefab);
         }, enemy => { enemy.gameObject.SetActive(true);
@@ -29,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         // get player position
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        InvokeRepeating(nameof(Spawn), 0.2f, 5f);
+        InvokeRepeating(nameof(Spawn), 0.2f, 1.5f);
     }
 
     void Spawn() {
@@ -63,5 +64,9 @@ public class EnemySpawner : MonoBehaviour
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, maxDistance);
+    }
+
+    private void OnDestroy() {
+        GameManager.instance.CurrentBossEnemiesKilled++;
     }
 }

@@ -150,11 +150,6 @@ public class PlayerController : MonoBehaviour {
                 }
 
             }
-
-            //if we destroyed a spawner, track that so that the player can finish game
-            if (enemy.gameObject.layer == 8) {
-                GameManager.instance.CurrentBossEnemiesKilled++;
-            }
         }
             
     }

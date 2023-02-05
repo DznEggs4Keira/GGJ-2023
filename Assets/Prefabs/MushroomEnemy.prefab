@@ -87,8 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemy_speed: 2.2
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 20
+  maxHealth: 20
   isMushroom: 1
 --- !u!95 &7883074068903658375
 Animator:
