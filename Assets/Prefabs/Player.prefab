@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafb4e4c8fc078f4081950262b59ee4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 2500
-  maxHealth: 2500
+  currentHealth: 5000
+  maxHealth: 5000
   healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
   hitRange: 1.2
@@ -81,7 +81,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
