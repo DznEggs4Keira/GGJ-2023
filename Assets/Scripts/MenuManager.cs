@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // SET CURRENT RESOLUTION
         resolutions = Screen.resolutions;
         resolutionsDropdown.ClearOptions();
 
@@ -41,6 +41,9 @@ public class MenuManager : MonoBehaviour
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
 
+        // SET CURRENT MUSIC VOLUME
+        audioMixer.SetFloat("SFXVolume", -5);
+        audioMixer.SetFloat("MusicVolume", -20);
     }
 
     private void Update() {
