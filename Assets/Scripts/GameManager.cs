@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
         // play Outro
         videoPlayer.clip = outro;
         videoPlayer.Play();*/
+
+        GameOverScreen.SetActive(true);
     }
 
     public void ReloadGame() {

@@ -201,10 +201,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    IEnumerator Respawn(float delay = 10) {
+    IEnumerator Respawn(float delay = 3f) {
 
         //Play Dying Sound
-        AudioManager.instance.Play("Tate Dies", true);
+        //AudioManager.instance.Play("Tate Dies", true);
 
         yield return new WaitForSeconds(delay);
 

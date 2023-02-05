@@ -54,13 +54,13 @@ MonoBehaviour:
   maxHealth: 1000
   healthBar: {fileID: 0}
   hitPoint: {fileID: 4103586480525443574}
-  hitRange: 1.15
+  hitRange: 1.45
   enemyLayers:
     serializedVersion: 2
     m_Bits: 448
   recieveHitDelay: 1.5
   player_rb: {fileID: 0}
-  player_speed: 5
+  player_speed: 4
   player_sr: {fileID: 0}
   player_animator: {fileID: 0}
   respawnPoint: {x: 0, y: 0}
