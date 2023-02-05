@@ -333,8 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemy_speed: 0.8
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   isMushroom: 0
 --- !u!212 &7577968382572013023
 SpriteRenderer:
