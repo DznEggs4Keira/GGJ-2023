@@ -48,9 +48,6 @@ public class EnemyController : MonoBehaviour {
             AudioManager.instance.ReccuringPlay("Shroom Move", true);
         }
 
-        //update health
-        healthBar.SetHealth(EnemyHealth);
-
         CheckDeath();
     }
 

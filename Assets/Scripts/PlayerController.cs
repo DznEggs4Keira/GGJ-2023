@@ -150,11 +150,6 @@ public class PlayerController : MonoBehaviour {
                 }
 
             }
-
-            //if we destroyed a spawner, track that so that the player can finish game
-            if (enemy.gameObject.layer == 8) {
-                GameManager.instance.CurrentBossEnemiesKilled++;
-            }
         }
             
     }
@@ -201,10 +196,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    IEnumerator Respawn(float delay = 10) {
+    IEnumerator Respawn(float delay = 3f) {
 
         //Play Dying Sound
-        AudioManager.instance.Play("Tate Dies", true);
+        //AudioManager.instance.Play("Tate Dies", true);
 
         yield return new WaitForSeconds(delay);
 
